@@ -8,6 +8,7 @@ require 'PipePair'
 require 'StateMachine'
 require 'states/BaseState'
 require 'states/PlayState'
+require 'states.ScoreState'
 require 'states/TitleScreenState'
 
 WINDOW_WIDTH = 1280
@@ -50,7 +51,8 @@ function love.load()
     -- initialize state machine with all state-returning functions
     gStateMachine = StateMachine {
         ['title'] = function() return TitleScreenState() end,
-        ['play'] = function() return PlayState() end
+        ['play'] = function() return PlayState() end,
+        ['score'] = function() return ScoreState() end
      }
     gStateMachine:change('title')
 
@@ -63,7 +65,9 @@ function love.resize(w, h) push:resize(w, h) end
 function love.keypressed(key)
     love.keyboard.keysPressed[key] = true
 
-    if key == 'escape' then love.event.quit() end
+    if key == 'escape' then
+        love.event.quit()
+    end
 end
 
 -- Adding a custom function to the love.keyboard

@@ -9,9 +9,10 @@ function PipePair:init(y)
     self.pipes = {
         ['upper'] = Pipe('top', self.y),
         ['lower'] = Pipe('bottom', self.y + PIPE_HEIGHT + GAP_HEIGHT)
-    }
+     }
 
     self.remove = false
+    self.score = false
 end
 
 function PipePair:update(dt)
