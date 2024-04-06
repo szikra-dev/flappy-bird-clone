@@ -34,6 +34,4 @@ function Bird:collides(pipe)
     return false
 end
 
-function Bird:render()
-    love.graphics.draw(self.image, self.x, self.y)
-end
+function Bird:render() love.graphics.draw(self.image, self.x, self.y) end
